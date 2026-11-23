@@ -12,6 +12,7 @@ import ServicesSection from './sections/ServicesSection';
 import ParallaxSection from './sections/ParallaxSection';
 import ResultsSection from './sections/ResultsSection';
 import TreatmentDirectory from './sections/TreatmentDirectory';
+import SkinGuide from './sections/SkinGuide';
 import TeamSection from './sections/TeamSection';
 import CredibilitySection from './sections/CredibilitySection';
 import TestimonialsSection from './sections/TestimonialsSection';
@@ -39,6 +40,7 @@ export default function HomePage() {
       <ParallaxSection onBook={openBooking} />
       <ResultsSection />
       <TreatmentDirectory />
+      <SkinGuide />
       <TeamSection />
       <CredibilitySection />
       <TestimonialsSection />

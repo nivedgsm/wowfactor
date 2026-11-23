@@ -1,5 +1,10 @@
 {
   "/_global-error/page": "/_global-error",
   "/_not-found/page": "/_not-found",
-  "/page": "/"
+  "/about/page": "/about",
+  "/experts/page": "/experts",
+  "/journal/page": "/journal",
+  "/page": "/",
+  "/results/page": "/results",
+  "/treatments/page": "/treatments"
 }

@@ -1,40 +1,30 @@
 export type ServiceCategory = {
   title: string;
   tag: string;
+  treatmentSlug: string;
   image: string;
-  items: string[];
-};
-
-export type TreatmentGroup = {
-  name: string;
   items: string[];
 };
 
 export const serviceCategories: ServiceCategory[] = [
   {
     title: 'Dermatology', tag: 'SKIN',
-    image: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=1000&q=85',
+    treatmentSlug: 'skin',
+    image: '/images/editorial/skin.webp',
     items: ['General Dermatology', 'Pediatric Dermatology', 'Surgical Dermatology', 'Acne & Acne Scars', 'Pigmentation & Melasma'],
   },
   {
     title: 'Trichology', tag: 'HAIR',
-    image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1000&q=85',
+    treatmentSlug: 'hair',
+    image: '/images/editorial/hair.webp',
     items: ['Hair Analysis', 'Hair Transplant', 'Hair Reduction', 'GFC / PRP', 'Artificial Hair Implantation'],
   },
   {
     title: 'Cosmetology', tag: 'AESTHETICS',
-    image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1000&q=85',
+    treatmentSlug: 'aesthetics',
+    image: '/images/editorial/facial.webp',
     items: ['Skin Rejuvenation', 'Injectables', 'Skin Boosters', 'Laser Treatments', 'Medi Facials'],
   },
-];
-
-export const treatmentGroups: TreatmentGroup[] = [
-  { name: 'Lasers / Light', items: ['Ultra Pulse CO2 Fractional Laser', 'Cool Laser Therapy', 'Laser Peel', 'Primelase Laser', 'Tribeam Laser', 'Revlite Laser', 'Laser Tattoo Removal'] },
-  { name: 'Skin Tightening', items: ['Sygmalift HIFU', 'Secret RF', 'Sylfirm X', 'Threadlift'] },
-  { name: 'Injectables / Microneedling', items: ['Botox', 'PRP / GFC', 'Skin Boosters', 'Dermal Fillers', 'Exosomes', 'Mesotherapy'] },
-  { name: 'Hair', items: ['Hair Reduction', 'Hair Analysis', 'Hair Transplant', 'GFC / PRP', 'Exosomes', 'Mesotherapy'] },
-  { name: 'Dermato / Plastic Surgery', items: ['Vitiligo Surgery', 'Mole Excision', 'Punch Grafting'] },
-  { name: 'Peels / Medi Facials', items: ['Hydra Facial', 'Oxygeneo Facial', 'InnoPeel', 'Cosmelan Peel', 'Yellow Peel', 'Glycolic Acid Peel'] },
 ];
 
 export const testimonials = [
@@ -44,11 +34,11 @@ export const testimonials = [
 ];
 
 export const socialPosts = [
-  'https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?auto=format&fit=crop&w=700&q=85',
-  'https://images.unsplash.com/photo-1619451334792-150fd785ee74?auto=format&fit=crop&w=700&q=85',
-  'https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=700&q=85',
-  'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=700&q=85',
-  'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=700&q=85',
+  { src: '/images/editorial/journal-skincare.webp', alt: 'Indian woman applying moisturizer' },
+  { src: '/images/editorial/journal-portrait.webp', alt: 'Portrait of an Indian man in soft daylight' },
+  { src: '/images/editorial/skin.webp', alt: 'Close-up portrait of an Indian woman' },
+  { src: '/images/editorial/hair.webp', alt: 'Scalp consultation in a clinic' },
+  { src: '/images/editorial/facial.webp', alt: 'Patient on a treatment bed during a facial consultation' },
 ];
 
 export const teamMembers = [

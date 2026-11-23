@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { serviceCategories } from '@/app/data/siteData';
+import { treatmentHref } from '@/app/data/treatments';
 import Arrow from '../ui/Arrow';
 
 export default function ServicesSection() {
@@ -50,7 +51,7 @@ export default function ServicesSection() {
 
           {services.map((service, index) => (
             <motion.a
-              href="#booking"
+              href={treatmentHref(service.treatmentSlug)}
               className="service-card"
               key={service.title}
               initial={{

@@ -1,0 +1,170 @@
+/* [project]/app/site-refresh.css [app-client] (css) */
+:root {
+  --ink: #39242c;
+  --berry-surface: #673047;
+  --rose-surface: #f4e4e8;
+}
+
+.parallax-section, .social-section, .tourism-content, .testimonial-card-featured, .footer {
+  background-color: var(--berry-surface);
+}
+
+.social-image {
+  background-color: var(--rose-surface);
+}
+
+.site-page-treatments .page-hero, .site-page-journal .page-hero {
+  background: var(--rose-surface);
+  color: var(--ink);
+}
+
+.site-page-treatments .page-hero-copy > p, .site-page-journal .page-hero-copy > p, .site-page-treatments .page-hero-foot, .site-page-journal .page-hero-foot {
+  color: var(--muted);
+}
+
+.site-page-treatments .page-hero-copy h1 em, .site-page-journal .page-hero-copy h1 em, .site-page-treatments .page-hero .eyebrow, .site-page-journal .page-hero .eyebrow {
+  color: var(--berry);
+}
+
+.hero-slide-controls {
+  background: #4e2034eb;
+}
+
+.directory-grid, .directory-card, .directory-card a, .directory-treatment-list, .directory-treatment, .directory-card:hover .directory-treatment, .treatment-page-list, .treatment-page-list a, .ticker, .ticker div, .logo-row, .logo-row span, .social-header, .social-header-meta, .tourism-content-top, .tourism-content-bottom, .testimonials-header-top, .testimonial-card-top, .testimonial-card-bottom, .footer-top, .footer-bottom, .footer-hero, .footer-hero-meta, .footer-legal, .mega-pages, .carousel-caption, .treatment-list-grid, .treatment-list-grid article:nth-child(n), .site-page-results .page-hero-foot, .founder-details {
+  border: 0;
+}
+
+.directory-grid {
+  background: none;
+  gap: 16px;
+}
+
+.directory-card {
+  border-radius: 16px;
+}
+
+.about-mark-line, .about-bottom-line, .testimonials-footer-line, .service-card-border, .scroll-progress {
+  display: none;
+}
+
+.skin-guide, .treatment-process {
+  background: var(--rose-surface);
+  padding: clamp(56px, 8vw, 110px) 8vw;
+}
+
+.skin-guide {
+  scroll-margin-top: 90px;
+}
+
+.skin-guide > h2 {
+  letter-spacing: -.045em;
+  margin: 0 0 18px;
+  font-size: clamp(42px, 6vw, 82px);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.skin-guide > h2 em {
+  color: var(--berry);
+}
+
+.skin-guide p, .treatment-process p {
+  color: var(--muted);
+  max-width: 62ch;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.skin-guide-grid, .treatment-process {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(16px, 3vw, 44px);
+  display: grid;
+}
+
+.skin-guide-grid {
+  margin-top: 30px;
+}
+
+.skin-guide-panel {
+  background: var(--paper);
+  border-radius: 22px;
+  padding: clamp(20px, 3vw, 38px);
+}
+
+.skin-guide-panel h3, .treatment-process h2 {
+  margin: 0 0 16px;
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: 400;
+}
+
+.skin-guide-panel h4 {
+  margin: 20px 0 0;
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+
+.skin-guide-controls, .skin-guide-links {
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  display: flex;
+}
+
+.skin-guide-controls button {
+  background: var(--rose-surface);
+  color: var(--ink);
+  border: 0;
+  border-radius: 999px;
+  padding: 9px 14px;
+  font-size: .9rem;
+}
+
+.skin-guide-controls button[aria-pressed="true"] {
+  background: var(--berry);
+  color: #fff;
+}
+
+.skin-guide .text-link {
+  color: var(--berry);
+  font-size: .94rem;
+}
+
+.skin-tone-swatches {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  padding: 0;
+  list-style: none;
+  display: grid;
+}
+
+.skin-tone-swatches li {
+  font-size: .9rem;
+}
+
+.skin-tone-swatches span {
+  border-radius: 8px;
+  height: clamp(32px, 5vw, 60px);
+  margin-bottom: 5px;
+  display: block;
+}
+
+.swipe-slide {
+  touch-action: pan-y;
+}
+
+@media (max-width: 800px) {
+  .skin-guide-grid, .treatment-process {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .swipe-slide, .skin-guide *, .hero-slide-controls * {
+    transition-duration: 0s;
+  }
+}
+
+/*# sourceMappingURL=app_site-refresh_css_1igg3k2._.single.css.map*/

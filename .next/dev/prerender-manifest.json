@@ -1,11 +1,1 @@
-{
-  "version": 4,
-  "routes": {},
-  "dynamicRoutes": {},
-  "notFoundRoutes": [],
-  "preview": {
-    "previewModeId": "4a5dffe35b467acbbf02d7516c46929d",
-    "previewModeSigningKey": "9292e44d05784aaa20c67d9eef3c9df1c191bec46a1ad87e8d50f1e505e99841",
-    "previewModeEncryptionKey": "ad137e7332cad6fd5b34b449a32b7e4b64acf0bf9f1f27bb6b637e5f033f7a5a"
-  }
-}
+{"version":4,"routes":{"/treatments/skin":{},"/treatments/general-dermatology":{},"/treatments/pediatric-dermatology":{},"/treatments/acne-acne-scars":{},"/treatments/pigmentation-melasma":{},"/treatments/vitiligo-surgery":{},"/treatments/mole-excision":{},"/treatments/punch-grafting":{},"/treatments/hair":{},"/treatments/hair-analysis":{},"/treatments/hair-transplant":{},"/treatments/hair-reduction":{},"/treatments/prp-gfc":{},"/treatments/artificial-hair-implantation":{},"/treatments/laser":{},"/treatments/ultra-pulse-co2-fractional-laser":{},"/treatments/cool-laser-therapy":{},"/treatments/laser-peel":{},"/treatments/primelase-laser":{},"/treatments/tribeam-laser":{},"/treatments/revlite-laser":{},"/treatments/laser-tattoo-removal":{},"/treatments/aesthetics":{},"/treatments/sygmalift-hifu":{},"/treatments/secret-rf":{},"/treatments/sylfirm-x":{},"/treatments/threadlift":{},"/treatments/botox":{},"/treatments/skin-boosters":{},"/treatments/dermal-fillers":{},"/treatments/exosomes":{},"/treatments/mesotherapy":{},"/treatments/hydra-facial":{},"/treatments/oxygeneo-facial":{},"/treatments/innopeel":{},"/treatments/cosmelan-peel":{},"/treatments/yellow-peel":{},"/treatments/glycolic-acid-peel":{}},"dynamicRoutes":{"/treatments/[slug]":{"dataRoute":null,"dataRouteRegex":null,"fallback":false,"fallbackRevalidate":false,"fallbackSourceRoute":"/treatments/[slug]","routeRegex":"^\\/treatments\\/([^/]+?)(?:\\/)?$","allowHeader":[]}},"notFoundRoutes":[],"preview":{"previewModeId":"0f92d370457b94471fc18e9b099925b9","previewModeSigningKey":"980dd189098f45c0aad71848f9c804ac4f89bf754a36eba1278303d6090b573d","previewModeEncryptionKey":"d5e4b7b8e3aaedd680e9d025290c203ae2a5c746bd0c4479f3e15dc3c79bad07"}}

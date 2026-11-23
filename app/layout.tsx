@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import './treatments/treatment-pages.css';
+import './site-refresh.css';
 
 export const metadata: Metadata = {
   title: 'WOW FACTOR — Advanced Skin, Hair & Aesthetic Care',

@@ -1,6 +1,7 @@
 'use client';
 
-import { motion, MotionValue } from 'framer-motion';
+import { AnimatePresence, motion, MotionValue, useReducedMotion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import Arrow from '../ui/Arrow';
 
 type HeroSectionProps = {
@@ -12,6 +13,21 @@ export default function HeroSection({
   heroY,
   onBook,
 }: HeroSectionProps) {
+  const images = [
+    { src: '/images/editorial/facial.webp', alt: 'Patient and clinician during a facial consultation', tag: 'PERSONALIZED CARE' },
+    { src: '/images/editorial/skin.webp', alt: 'Close-up portrait of an Indian woman', tag: 'SKIN HEALTH' },
+    { src: '/images/editorial/hair.webp', alt: 'Clinician examining a patient’s hair and scalp', tag: 'HAIR & SCALP' },
+  ];
+  const [slide, setSlide] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const [autoPlay, setAutoPlay] = useState(true);
+  const reduceMotion = useReducedMotion();
+  useEffect(() => {
+    if (paused || !autoPlay || reduceMotion) return;
+    const timer = window.setInterval(() => setSlide((current) => (current + 1) % images.length), 6500);
+    return () => window.clearInterval(timer);
+  }, [paused, autoPlay, reduceMotion, images.length]);
+  const stepSlide = (direction: number) => setSlide((current) => (current + direction + images.length) % images.length);
   return (
     <section className="hero">
 
@@ -150,12 +166,35 @@ export default function HeroSection({
           duration: 1.2,
           ease: [0.22, 1, 0.36, 1],
         }}
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+        onFocus={() => setPaused(true)}
+        onBlur={(event) => {
+          if (!event.currentTarget.contains(event.relatedTarget)) setPaused(false);
+        }}
+        onPanEnd={(_, { offset }) => {
+          if (Math.abs(offset.x) > 55 && Math.abs(offset.x) > Math.abs(offset.y)) {
+            stepSlide(offset.x < 0 ? 1 : -1);
+          }
+        }}
+        style={{ touchAction: 'pan-y' }}
       >
 
-        <img
-          src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1800&q=90"
-          alt="Professional skincare treatment"
-        />
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={slide}
+            src={images[slide].src}
+            alt={images[slide].alt}
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
+            sizes="(max-width: 700px) 100vw, 55vw"
+            initial={reduceMotion ? false : { opacity: 0, scale: 1.025 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: reduceMotion ? 0 : 0.5, ease: [.22, 1, .36, 1] }}
+          />
+        </AnimatePresence>
 
 
         {/* Image overlay */}
@@ -201,9 +240,20 @@ export default function HeroSection({
           </div>
 
           <span className="hero-image-location">
-            PERSONALIZED CARE
+            {images[slide].tag}
           </span>
 
+        </div>
+
+        <div className="hero-slide-controls" aria-label="Hero image slides">
+          <button type="button" onClick={() => stepSlide(-1)} aria-label="Previous image">←</button>
+          {images.map((item, index) => <button key={item.tag} type="button" className={`hero-slide-dot ${slide === index ? 'active' : ''}`} onClick={() => setSlide(index)} aria-label={`Show ${item.tag.toLowerCase()} image`} aria-current={slide === index} />)}
+          <button type="button" onClick={() => stepSlide(1)} aria-label="Next image">→</button>
+          {!reduceMotion && (
+            <button type="button" onClick={() => setAutoPlay((value) => !value)} aria-label={autoPlay ? 'Pause slideshow' : 'Play slideshow'}>
+              {autoPlay ? 'Ⅱ' : '▶'}
+            </button>
+          )}
         </div>
 
       </motion.div>

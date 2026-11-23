@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { treatmentGroups } from '@/app/data/siteData';
+import Link from 'next/link';
+import { treatmentCategories, treatmentHref } from '@/app/data/treatments';
 import Arrow from '../ui/Arrow';
 
 type NavbarProps = { onBook: () => void };
@@ -15,24 +16,33 @@ export default function Navbar({ onBook }: NavbarProps) {
   return (
     <header className="nav-wrap">
       <nav className="nav">
-        <a className="brand" href="#top" onClick={closeMenu}><img src="/images/logo-pink.png" alt="WOW FACTOR" /></a>
+        <a className="brand" href="/" onClick={closeMenu}><img src="/images/logo-pink.png" alt="WOW FACTOR" /></a>
         <div className="nav-links">
-          <a href="#about">About</a>
-          <button className="nav-menu-btn" onClick={() => setOpen((value) => !value)}>Treatments <span>+</span></button>
-          <a href="#results">Results</a>
-          <a href="#team">Experts</a>
-          <a href="#journal">Journal</a>
+          <a href="/about">About</a>
+          <a href="/treatments">Treatments</a>
+          <a href="/results">Results</a>
+          <a href="/experts">Experts</a>
+          <a href="/journal">Journal</a>
         </div>
         <button className="pill-btn" onClick={onBook}>Book consultation <Arrow /></button>
         <button className="mobile-menu" onClick={() => setOpen((value) => !value)} aria-label="Open menu">☰</button>
       </nav>
       {open && (
         <motion.div initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} className="mega-menu">
+          <div className="mega-pages">
+            <a href="/about" onClick={closeMenu}>About</a>
+            <a href="/treatments" onClick={closeMenu}>Treatments</a>
+            <a href="/results" onClick={closeMenu}>Results</a>
+            <a href="/experts" onClick={closeMenu}>Experts</a>
+            <a href="/journal" onClick={closeMenu}>Journal</a>
+          </div>
           <div className="mega-intro"><span>EXPLORE</span><h3>Care designed<br /><em>around you.</em></h3></div>
-          {treatmentGroups.slice(0, 4).map((group) => (
+          {treatmentCategories.map((group) => (
             <div className="mega-col" key={group.name}>
-              <b>{group.name}</b>
-              {group.items.slice(0, 5).map((item) => <a href="#treatments" key={item} onClick={closeMenu}>{item}</a>)}
+              <b><Link href={treatmentHref(group.slug)} onClick={closeMenu}>{group.name}</Link></b>
+              {group.items.slice(0, 5).map((item) => (
+                <Link href={treatmentHref(item.slug)} key={item.slug} onClick={closeMenu}>{item.name}</Link>
+              ))}
             </div>
           ))}
         </motion.div>

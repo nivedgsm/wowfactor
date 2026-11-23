@@ -67,11 +67,11 @@ export default function Footer() {
             <span className="footer-label">EXPLORE</span>
 
             <nav className="footer-links">
-              <a href="#about">About</a>
-              <a href="#treatments">Treatments</a>
-              <a href="#founders">Experts</a>
-              <a href="#results">Results</a>
-              <a href="#journal">Journal</a>
+              <a href="/about">About</a>
+              <a href="/treatments">Treatments</a>
+              <a href="/experts">Experts</a>
+              <a href="/results">Results</a>
+              <a href="/journal">Journal</a>
             </nav>
           </div>
 

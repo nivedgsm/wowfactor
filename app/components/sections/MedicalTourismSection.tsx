@@ -24,8 +24,9 @@ export default function MedicalTourismSection({ onBook }: Props) {
           }}
         >
           <img
-            src="https://images.unsplash.com/photo-1580281658223-9b93f18ae9ae?auto=format&fit=crop&w=1800&q=90"
-            alt="Medical care"
+            src="/images/editorial/consultation.webp"
+            alt="Patient discussing care with two clinicians"
+            loading="lazy"
           />
 
           <div className="tourism-visual-overlay" />

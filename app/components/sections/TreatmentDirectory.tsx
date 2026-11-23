@@ -1,7 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { treatmentGroups } from '@/app/data/siteData';
+import Link from 'next/link';
+import { treatmentCategories, treatmentHref } from '@/app/data/treatments';
 import Arrow from '../ui/Arrow';
 
 export default function TreatmentDirectory() {
@@ -31,25 +32,22 @@ export default function TreatmentDirectory() {
         >
           <div className="treatment-directory-heading">
             <span className="eyebrow">
-              04 — TREATMENT DIRECTORY
+              TREATMENT DIRECTORY
             </span>
 
             <h2>
-              Everything your
-              <br />
-              <em>care needs.</em>
+              Explore <em>treatments.</em>
             </h2>
           </div>
 
           <div className="treatment-directory-intro">
             <p>
-              Explore our treatments by category and discover
-              a more personalized approach to your skin, hair
-              and aesthetic journey.
+              Browse skin, hair, laser and aesthetic treatments.
             </p>
+            <a className="text-link" href="#skin-guide">Explore skin types and tones</a>
 
             <span className="treatment-directory-count">
-              {treatmentGroups.length
+              {treatmentCategories.length
                 .toString()
                 .padStart(2, '0')}{' '}
               CATEGORIES
@@ -62,7 +60,7 @@ export default function TreatmentDirectory() {
         ===================================================== */}
 
         <div className="directory-grid">
-          {treatmentGroups.map((group, index) => (
+          {treatmentCategories.map((group, index) => (
             <motion.article
               className="directory-card"
               key={group.name}
@@ -104,34 +102,27 @@ export default function TreatmentDirectory() {
 
               <div className="directory-card-heading">
                 <h3>
-                  {group.name}
+                  <Link href={treatmentHref(group.slug)}>{group.name}</Link>
                 </h3>
-
-                <span
-                  className="directory-card-symbol"
-                  aria-hidden="true"
-                >
-                  +
-                </span>
               </div>
 
               {/* Treatment list */}
 
               <div className="directory-treatment-list">
                 {group.items.map((item) => (
-                  <a
-                    key={item}
-                    href="#booking"
+                  <Link
+                    key={item.slug}
+                    href={treatmentHref(item.slug)}
                     className="directory-treatment"
                   >
                     <span className="directory-treatment-name">
-                      {item}
+                      {item.name}
                     </span>
 
                     <span className="directory-treatment-arrow">
                       <Arrow />
                     </span>
-                  </a>
+                  </Link>
                 ))}
               </div>
             </motion.article>

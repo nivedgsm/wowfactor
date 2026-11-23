@@ -63,7 +63,7 @@ export default function SocialSection() {
         {/* Editorial gallery */}
         <div className="social-gallery">
 
-          {posts.map((src, index) => (
+          {posts.map(({ src, alt }, index) => (
             <motion.a
               href="#"
               key={src}
@@ -89,7 +89,7 @@ export default function SocialSection() {
               <div className="social-image">
                 <img
                   src={src}
-                  alt={`WOW FACTOR journal ${index + 1}`}
+                  alt={alt}
                   loading={index === 0 ? 'eager' : 'lazy'}
                 />
 

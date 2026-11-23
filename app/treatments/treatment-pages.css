@@ -1,0 +1,88 @@
+.treatment-directory,
+#booking {
+  scroll-margin-top: 100px;
+}
+
+.directory-card-heading h3 a {
+  color: inherit;
+  font: inherit;
+  padding: 0;
+  border: 0;
+}
+
+.directory-card-heading h3 a:hover,
+.treatment-breadcrumb a:hover {
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+
+.treatment-page-hero {
+  padding: clamp(125px, 12vw, 185px) 8vw clamp(55px, 8vw, 110px);
+  background: var(--cream);
+}
+
+.treatment-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5em;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.treatment-breadcrumb a {
+  color: var(--berry);
+}
+
+.treatment-page-hero h1 {
+  max-width: 19ch;
+  margin: 24px 0;
+  font-size: clamp(42px, 8vw, 104px);
+  line-height: .98;
+  letter-spacing: -.055em;
+  font-weight: 400;
+}
+
+.treatment-page-hero h2,
+.treatment-page-list h2 {
+  font-size: clamp(24px, 4vw, 42px);
+  line-height: 1.1;
+  font-weight: 400;
+  margin: 0 0 16px;
+}
+
+.treatment-page-hero p {
+  max-width: 60ch;
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(16px, 2vw, 20px);
+  line-height: 1.65;
+}
+
+.treatment-page-hero .pill-btn {
+  margin-top: 24px;
+}
+
+.treatment-page-list {
+  padding: clamp(55px, 8vw, 100px) 8vw;
+  border-bottom: 1px solid var(--line);
+}
+
+.treatment-page-list ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 5vw;
+  list-style: none;
+  padding: 0;
+  margin: 24px 0 0;
+}
+
+.treatment-page-list a {
+  min-height: 54px;
+  border-bottom: 1px solid var(--line);
+}
+
+@media (max-width: 650px) {
+  .treatment-page-list ul {
+    grid-template-columns: 1fr;
+  }
+}
