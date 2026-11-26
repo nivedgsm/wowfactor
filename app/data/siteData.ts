@@ -33,14 +33,6 @@ export const testimonials = [
   { title: 'Skin Glow Success', text: 'I had struggled with acne for years. The treatments were tailored to my skin and I finally feel confident in my skin.', author: 'Priya M' },
 ];
 
-export const socialPosts = [
-  { src: '/images/editorial/journal-skincare.webp', alt: 'Indian woman applying moisturizer' },
-  { src: '/images/editorial/journal-portrait.webp', alt: 'Portrait of an Indian man in soft daylight' },
-  { src: '/images/editorial/skin.webp', alt: 'Close-up portrait of an Indian woman' },
-  { src: '/images/editorial/hair.webp', alt: 'Scalp consultation in a clinic' },
-  { src: '/images/editorial/facial.webp', alt: 'Patient on a treatment bed during a facial consultation' },
-];
-
 export const teamMembers = [
   { name: 'Aswini Jaison', role: 'Designation', image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=900&q=85' },
   { name: 'Clinical Specialist', role: 'Senior Consultant', image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=900&q=85' },

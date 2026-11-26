@@ -48,7 +48,7 @@ export default function CredibilitySection() {
         >
           <div className="credibility-heading">
             <span className="eyebrow">
-              06 — TRUSTED CARE
+              TRUSTED CARE
             </span>
 
             <h2>
@@ -115,43 +115,6 @@ export default function CredibilitySection() {
           ))}
         </div>
 
-        {/* Certifications / media strip */}
-        <motion.div
-          className="credibility-strip"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{
-            duration: 0.8,
-            delay: 0.2,
-          }}
-        >
-          <div className="credibility-strip-label">
-            <span>RECOGNITION</span>
-          </div>
-
-          <div className="credibility-strip-items">
-            <div className="credibility-placeholder">
-              <span>Certification</span>
-              <small>LOGO / NAME</small>
-            </div>
-
-            <div className="credibility-placeholder">
-              <span>Affiliation</span>
-              <small>LOGO / NAME</small>
-            </div>
-
-            <div className="credibility-placeholder">
-              <span>Award</span>
-              <small>LOGO / NAME</small>
-            </div>
-
-            <div className="credibility-placeholder">
-              <span>Featured</span>
-              <small>MEDIA / PUBLICATION</small>
-            </div>
-          </div>
-        </motion.div>
 
       </div>
     </section>

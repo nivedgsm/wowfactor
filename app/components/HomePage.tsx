@@ -8,6 +8,7 @@ import BookingModal from './ui/BookingModal';
 import HeroSection from './sections/HeroSection';
 import TickerSection from './sections/TickerSection';
 import AboutSection from './sections/AboutSection';
+import AwardsSection from './sections/AwardsSection';
 import ServicesSection from './sections/ServicesSection';
 import ParallaxSection from './sections/ParallaxSection';
 import ResultsSection from './sections/ResultsSection';
@@ -19,11 +20,11 @@ import TestimonialsSection from './sections/TestimonialsSection';
 import SocialSection from './sections/SocialSection';
 import MedicalTourismSection from './sections/MedicalTourismSection';
 import BookingCTA from './sections/BookingCTA';
+import type { InstagramReel } from '@/app/data/instagramReels';
 
-export default function HomePage() {
+export default function HomePage({ reels }: { reels: InstagramReel[] }) {
   const [bookingOpen, setBookingOpen] = useState(false);
   const { scrollYProgress } = useScroll();
-  const heroY = useTransform(scrollYProgress, [0, 0.25], [0, 120]);
   const progress = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
   const openBooking = () => setBookingOpen(true);
@@ -33,9 +34,10 @@ export default function HomePage() {
     <main id="top">
       <motion.div className="scroll-progress" style={{ scaleX: progress }} />
       <Navbar onBook={openBooking} />
-      <HeroSection heroY={heroY} onBook={openBooking} />
-      <TickerSection />
+      <HeroSection onBook={openBooking} />
+
       <AboutSection />
+      {/* <TickerSection /> */}
       <ServicesSection />
       <ParallaxSection onBook={openBooking} />
       <ResultsSection />
@@ -43,8 +45,9 @@ export default function HomePage() {
       <SkinGuide />
       <TeamSection />
       <CredibilitySection />
+      <AwardsSection />
       <TestimonialsSection />
-      <SocialSection />
+      <SocialSection reels={reels} />
       <MedicalTourismSection onBook={openBooking} />
       <BookingCTA onBook={openBooking} />
       <Footer />

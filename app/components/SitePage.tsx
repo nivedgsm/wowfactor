@@ -15,6 +15,7 @@ import BookingModal from './ui/BookingModal';
 import Arrow from './ui/Arrow';
 import TreatmentDirectory from './sections/TreatmentDirectory';
 import SkinGuide from './sections/SkinGuide';
+import AwardsSection from './sections/AwardsSection';
 
 import {
   serviceCategories,
@@ -79,7 +80,6 @@ const stories = [
 const pageInfo: Record<
   PageKey,
   {
-    number: string;
     eyebrow: string;
     title: string;
     accent: string;
@@ -89,7 +89,6 @@ const pageInfo: Record<
   }
 > = {
   about: {
-    number: '01',
     eyebrow: 'THE WOW FACTOR APPROACH',
     title: 'Care that sees',
     accent: 'all of you.',
@@ -100,7 +99,6 @@ const pageInfo: Record<
     label: 'SCIENCE · BEAUTY · CARE',
   },
   treatments: {
-    number: '02',
     eyebrow: 'PERSONALIZED TREATMENTS',
     title: 'A plan made',
     accent: 'for your skin.',
@@ -110,7 +108,6 @@ const pageInfo: Record<
     label: 'SKIN · HAIR · AESTHETICS',
   },
   results: {
-    number: '03',
     eyebrow: 'REAL JOURNEYS, PERSONAL RESULTS',
     title: 'Progress that',
     accent: 'feels like you.',
@@ -121,7 +118,6 @@ const pageInfo: Record<
     label: 'INDIVIDUAL RESULTS VARY',
   },
   experts: {
-    number: '04',
     eyebrow: 'MEET YOUR CARE TEAM',
     title: 'Expertise with',
     accent: 'a human touch.',
@@ -131,7 +127,6 @@ const pageInfo: Record<
     label: 'THE PEOPLE BEHIND YOUR CARE',
   },
   journal: {
-    number: '05',
     eyebrow: 'THE WOW FACTOR JOURNAL',
     title: 'A little more',
     accent: 'informed.',
@@ -449,7 +444,7 @@ export default function SitePage({
 
         <div className="page-hero-copy">
           <span className="eyebrow">
-            {info.number} — {info.eyebrow}
+            {info.eyebrow}
           </span>
 
           <h1>
@@ -504,7 +499,7 @@ export default function SitePage({
 
       {/* INTRODUCTION */}
 
-      <section className="page-intro">
+      <section className="page-intro" data-scroll-reveal>
         <span className="eyebrow">
           {page === 'about'
             ? 'OUR PROMISE'
@@ -522,6 +517,8 @@ export default function SitePage({
         <p>{introCopy[page]}</p>
       </section>
 
+      {page === 'about' && <AwardsSection />}
+
       {/* EXPERTS PAGE */}
 
       {page === 'experts' && (
@@ -532,9 +529,9 @@ export default function SitePage({
 
       {page !== 'experts' && page !== 'treatments' && (
         <section className="page-feature">
-          <div className="page-feature-heading">
+          <div className="page-feature-heading" data-scroll-reveal>
             <span className="eyebrow">
-              {info.number} — {info.label}
+              {info.label}
             </span>
 
             <p>Swipe or use the arrows to explore</p>
@@ -563,7 +560,7 @@ export default function SitePage({
       {/* RESULTS */}
 
       {page === 'results' && (
-        <section className="page-quote">
+        <section className="page-quote" data-scroll-reveal>
           <span className="eyebrow">
             PATIENT STORIES
           </span>
@@ -594,7 +591,7 @@ export default function SitePage({
 
           <div className="treatment-list-grid">
             {stories.map((story) => (
-              <article key={story.title}>
+              <article key={story.title} data-scroll-reveal>
                 <span>{story.type}</span>
                 <h3>{story.title}</h3>
                 <p>{story.text}</p>
@@ -606,7 +603,7 @@ export default function SitePage({
 
       {/* FINAL CTA */}
 
-      <section id="booking" className="page-cta">
+      <section id="booking" className="page-cta" data-scroll-reveal>
         <span className="eyebrow">
           A GOOD PLACE TO BEGIN
         </span>

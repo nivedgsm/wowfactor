@@ -47,4 +47,8 @@ app/
 
 ## Important
 
-The photography, doctors, certifications, testimonials and social content are sample placeholders. Replace them with client-approved assets/content before launch.
+The homepage Social section pairs the reels in `app/data/instagramReels.ts`
+with the numbered PNG covers in `public/images/editorial/reels`.
+The first reel uses `1.png`, the second uses `2.png`, and so on.
+
+Replace remaining sample content with client-approved assets before launch.

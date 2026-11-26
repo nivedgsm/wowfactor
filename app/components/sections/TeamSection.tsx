@@ -39,7 +39,7 @@ export default function TeamSection() {
         >
           <div className="founders-heading">
             <span className="eyebrow">
-              05 — THE FOUNDERS
+              THE FOUNDERS
             </span>
 
             <h2>

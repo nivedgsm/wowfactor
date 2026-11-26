@@ -1,0 +1,211 @@
+.section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  color: #fff8f6;
+  background: #260913;
+}
+
+.mobile { display: none; }
+
+.image {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background:
+    linear-gradient(90deg, #170a10a8, #230a1330 52%, transparent 70%),
+    url('/images/editorial/parallax-portrait.webp') center right / cover no-repeat;
+}
+
+.inner {
+  display: flex;
+  min-height: clamp(600px, 48.7vw, 1000px);
+  max-width: 1900px;
+  margin-inline: auto;
+  padding: clamp(28px, 3.3vw, 60px) clamp(24px, 5.5vw, 100px) clamp(54px, 5.1vw, 96px);
+  flex-direction: column;
+  justify-content: space-between;
+  gap: clamp(50px, 8.8vw, 160px);
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  font-size: clamp(.72rem, .85vw, .95rem);
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+
+.top span:nth-child(2) { text-align: center; }
+
+.content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 20px;
+}
+
+.eyebrow {
+  margin: 0 0 clamp(24px, 2.5vw, 46px);
+  font-size: clamp(.67rem, .85vw, .97rem);
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.copy h2 {
+  margin: 0;
+  font-size: clamp(64px, 7.7vw, 146px);
+  font-weight: 400;
+  line-height: .9;
+  letter-spacing: -.06em;
+}
+
+.copy em {
+  display: block;
+  color: #f7bace;
+}
+
+.description {
+  max-width: 48ch;
+  margin: clamp(24px, 3vw, 52px) 0 0;
+  font-size: clamp(1.02rem, 1.28vw, 1.5rem);
+  line-height: 1.5;
+}
+
+.booking {
+  position: relative;
+  display: grid;
+  width: clamp(132px, 17.5vw, 315px);
+  aspect-ratio: 1;
+  place-content: center;
+  justify-items: center;
+  gap: 10px;
+  margin-inline-end: clamp(0px, 2.5vw, 48px);
+  padding: 16px;
+  border: 1px solid #fff8f6;
+  border-radius: 50%;
+  background: #220f12ad;
+  color: inherit;
+  backdrop-filter: blur(9px);
+  font-size: clamp(.7rem, 1vw, 1.15rem);
+  line-height: 1.25;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  transition: background-color 240ms ease;
+}
+
+.booking::before {
+  position: absolute;
+  inset: 5%;
+  border: 1px solid #fff8f655;
+  border-radius: inherit;
+  pointer-events: none;
+  content: '';
+}
+
+.booking :global(.arrow) { display: grid; width: 18px; }
+.booking:hover { background-color: #4e1629d9; }
+.booking:focus-visible { outline: 2px solid #fff8f6; outline-offset: 5px; }
+
+@media (min-width: 1025px) and (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .image { background-attachment: scroll, fixed; }
+}
+
+@media (max-width: 1024px) {
+  .image { background-position: center, 67% center; }
+  .copy { text-shadow: 0 2px 12px #230a13b3; }
+  .copy h2 { font-size: clamp(48px, 7.7vw, 82px); }
+  .booking { margin-inline-end: 0; }
+}
+
+@media (max-width: 680px), (max-width: 1024px) and (orientation: portrait) {
+  .image {
+    background-image:
+      linear-gradient(0deg, #240913 5%, #240913ed 25%, #24091342 58%, #24091310 80%, #24091373),
+      url('/images/editorial/parallax-portrait.webp');
+    background-position: center, 70% top;
+    background-size: cover, auto 100%;
+  }
+
+  .inner {
+    min-height: clamp(650px, 92vw, 850px);
+    padding: 28px 6vw 42px;
+    gap: clamp(235px, 39vw, 365px);
+  }
+
+  .top { display: flex; justify-content: space-between; gap: 12px; }
+  .top span:nth-child(2) { text-align: end; }
+  .content { align-items: end; gap: clamp(18px, 4vw, 38px); }
+  .eyebrow { max-width: 38ch; margin-bottom: 14px; }
+  .copy em br { display: none; }
+  .description { margin-top: 17px; }
+}
+
+@media (max-width: 680px) {
+  .desktop { display: none; }
+  .mobile { display: inline; }
+
+  .image {
+    background-image:
+      linear-gradient(180deg, #300715aa, transparent 24%, #3b08173b 44%, #3b0817e8 76%, #3b0817),
+      url('/images/editorial/parallax-portrait.webp');
+    background-position: center, 79% top;
+    background-size: cover, auto 91%;
+  }
+
+  .section::after {
+    position: absolute;
+    z-index: -1;
+    right: -19%;
+    bottom: -10vw;
+    left: -21%;
+    height: clamp(70px, 21vw, 140px);
+    border-radius: 45% 65% 0 0;
+    background: linear-gradient(110deg, #8a12334d, #9c254d66 55%, #550c29a6);
+    transform: rotate(-7deg);
+    pointer-events: none;
+    content: '';
+  }
+
+  .inner {
+    min-height: min(100svh, 800px);
+    padding: 24px 7vw clamp(52px, 12vw, 92px);
+    gap: clamp(170px, 54vw, 345px);
+  }
+
+  .top { font: 500 clamp(.56rem, 1.95vw, .76rem)/1.4 system-ui, sans-serif; letter-spacing: .1em; }
+  .top span:last-child { text-align: end; }
+  .content { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .eyebrow { max-width: 22ch; font: 500 .68rem/1.6 system-ui, sans-serif; letter-spacing: .19em; }
+  .copy h2 { font-size: clamp(35px, 9.3vw, 66px); }
+  .description { max-width: 34ch; font-size: clamp(.98rem, 3.5vw, 1.18rem); }
+
+  .booking {
+    display: inline-flex;
+    width: fit-content;
+    min-height: 48px;
+    aspect-ratio: auto;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 20px;
+    border-radius: 999px;
+    background: #fff3e5;
+    color: #820934;
+    font: 600 .78rem/1.25 system-ui, sans-serif;
+    letter-spacing: .09em;
+  }
+
+  .booking::before,
+  .booking br,
+  .booking :global(.arrow) { display: none; }
+  .booking .mobile { font-size: 1.35em; }
+  .booking:hover { background: #ffe1de; }
+}
+
+@media (max-width: 480px) and (orientation: landscape) {
+  .inner { gap: 140px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .booking { transition: none; }
+}

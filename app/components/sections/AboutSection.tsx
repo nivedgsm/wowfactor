@@ -1,136 +1,101 @@
-'use client';
+﻿'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion, type Variants } from 'framer-motion';
 import Arrow from '../ui/Arrow';
 
+const sequence: Variants = {
+  revealed: { transition: { staggerChildren: 0.12 } },
+};
+
+const rise: Variants = {
+  hidden: { opacity: 0, y: 18 },
+  revealed: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.74, ease: [0.22, 1, 0.36, 1] },
+  },
+};
+
+const verticalLine: Variants = {
+  hidden: { scaleY: 0 },
+  revealed: { scaleY: 1, transition: { duration: 0.8, ease: 'easeOut' } },
+};
+
+const horizontalLine: Variants = {
+  hidden: { scaleX: 0 },
+  revealed: { scaleX: 1, transition: { duration: 0.8, ease: 'easeOut' } },
+};
+
 export default function AboutSection() {
+  const reduceMotion = useReducedMotion();
+  const reveal = {
+    variants: sequence,
+    initial: reduceMotion ? false as const : 'hidden',
+    whileInView: 'revealed',
+    viewport: { once: true, amount: 0.5, margin: '0px 0px -96px 0px' },
+  };
+
   return (
     <section id="about" className="about-section">
       <div className="about-container">
-
-        {/* Top metadata */}
-        <motion.div
-          className="about-top"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-        >
-          <span className="eyebrow">
-            01 — ABOUT WOW FACTOR
-          </span>
-
-          <span className="about-top-label">
+        <motion.div className="about-top" {...reveal}>
+          <motion.span className="eyebrow" variants={rise}>
+            ABOUT WOW FACTOR
+          </motion.span>
+          <motion.span className="about-top-label" variants={rise}>
             EST. 2012 · INDIA
-          </span>
+          </motion.span>
         </motion.div>
 
-        {/* Main statement */}
-        <motion.div
-          className="about-statement"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.25 }}
-          transition={{
-            duration: 0.9,
-            ease: [0.22, 1, 0.36, 1],
-          }}
-        >
-          <h2>
-            Healthcare is evolving.
-            <br />
-            Stay ahead with{' '}
-            <em>expert care.</em>
-          </h2>
-        </motion.div>
+        <div className="about-statement">
+          <motion.h2 {...reveal}>
+            <motion.span style={{ display: 'block' }} variants={rise}>
+              Healthcare is evolving.
+            </motion.span>
+            <motion.span style={{ display: 'block' }} variants={rise}>
+              Stay ahead with <em>expert care.</em>
+            </motion.span>
+          </motion.h2>
+        </div>
 
-        {/* Story */}
         <div className="about-story">
-
-          <motion.div
-            className="about-story-mark"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.15 }}
-          >
-            <span className="about-mark-number">01</span>
-
-            <div className="about-mark-line" />
-
-            <span className="about-mark-text">
-              SCIENCE
-              <br />
-              ×
-              <br />
-              BEAUTY
-            </span>
+          <motion.div className="about-story-mark" {...reveal}>
+            <motion.span className="about-mark-number" variants={rise}>01</motion.span>
+            <motion.div className="about-mark-line" style={{ originY: 0 }} variants={verticalLine} />
+            <motion.span className="about-mark-text" variants={rise}>
+              SCIENCE<br />×<br />BEAUTY
+            </motion.span>
           </motion.div>
 
-          <motion.div
-            className="about-copy"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{
-              duration: 0.8,
-              delay: 0.1,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-          >
-            <p className="about-lead">
+          <motion.div className="about-copy" {...reveal}>
+            <motion.p className="about-lead" variants={rise}>
               Wow Factor, since 2012, has led the way in
               revolutionizing the medi-cosmetic industry in India.
               Our mission is to offer cutting-edge treatments from
               around the globe, creating a caring and supportive
               environment for every client.
-            </p>
-
-            <p>
+            </motion.p>
+            <motion.p variants={rise}>
               From acne solutions to hair implantation, we offer
               an extensive range of treatments with state-of-the-art
               facilities and unwavering professional standards.
-            </p>
-
-            <a
-              className="about-link"
-              href="#founders"
-            >
+            </motion.p>
+            <motion.a className="about-link" href="#founders" variants={rise}>
               <span>Meet the experts</span>
-
-              <span
-                className="about-link-arrow"
-                aria-hidden="true"
-              >
+              <span className="about-link-arrow" aria-hidden="true">
                 <Arrow />
               </span>
-            </a>
+            </motion.a>
           </motion.div>
-
         </div>
 
-        {/* Bottom statement */}
-        <motion.div
-          className="about-bottom"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{
-            duration: 0.8,
-            delay: 0.25,
-          }}
-        >
-          <span>12+ YEARS</span>
-
-          <div className="about-bottom-line" />
-
-          <span>MEDI-COSMETIC CARE</span>
-
-          <div className="about-bottom-line" />
-
-          <span>WOW FACTOR</span>
+        <motion.div className="about-bottom" {...reveal}>
+          <motion.span variants={rise}>12+ YEARS</motion.span>
+          <motion.div className="about-bottom-line" style={{ originX: 0 }} variants={horizontalLine} />
+          <motion.span variants={rise}>MEDI-COSMETIC CARE</motion.span>
+          <motion.div className="about-bottom-line" style={{ originX: 0 }} variants={horizontalLine} />
+          <motion.span variants={rise}>WOW FACTOR</motion.span>
         </motion.div>
-
       </div>
     </section>
   );

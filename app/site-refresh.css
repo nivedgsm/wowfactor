@@ -2,7 +2,11 @@
   --ink: #39242c;
   --berry-surface: #673047;
   --rose-surface: #f4e4e8;
+  --social-surface: #301421;
+  --booking-surface: #9b003f;
 }
+
+.booking-cta { background: var(--booking-surface); }
 
 .parallax-section,
 .social-section,
@@ -64,7 +68,29 @@
 .footer-hero,
 .footer-hero-meta,
 .footer-legal,
+.footer-main,
 .mega-pages,
+.about-top,
+.services-bottom,
+.results-link,
+.founders-signature,
+.founder-info,
+.founders-bottom,
+.parallax-top,
+.parallax-bottom,
+.booking-cta-top,
+.booking-cta-bottom,
+.social-bottom,
+.ticker-window,
+.credibility-mark,
+.credibility-grid,
+.credibility-grid .credibility-card,
+.credibility-strip,
+.credibility-strip-label,
+.credibility-strip-items .credibility-placeholder,
+.treatment-directory-count,
+.directory-bottom a,
+.skin-guide .text-link,
 .carousel-caption,
 .treatment-list-grid,
 .treatment-list-grid article:nth-child(n),
@@ -86,8 +112,16 @@
 .about-bottom-line,
 .testimonials-footer-line,
 .service-card-border,
+.wow-footer-divider,
 .scroll-progress {
   display: none;
+}
+
+.results-link:focus-visible,
+.directory-bottom a:focus-visible,
+.skin-guide .text-link:focus-visible {
+  outline: 2px solid var(--berry);
+  outline-offset: 4px;
 }
 
 .skin-guide,
