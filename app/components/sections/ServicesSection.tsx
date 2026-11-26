@@ -30,13 +30,13 @@ export default function ServicesSection() {
           }}
         >
           <span className="services-eyebrow">
-            02 — OUR SERVICES
+            OUR SERVICES
           </span>
 
           <h2>
             Evolving healthcare,
             <br />
-            enhanced services —
+            enhanced services
             <br />
             <em>just for you.</em>
           </h2>

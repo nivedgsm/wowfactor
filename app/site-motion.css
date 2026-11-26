@@ -1,0 +1,20 @@
+@media (prefers-reduced-motion: no-preference) {
+  [data-scroll-reveal][data-scroll-state='waiting']:not(:focus-within) {
+    opacity: 0;
+    translate: 0 16px;
+  }
+
+  [data-scroll-reveal][data-scroll-state='visible']:not(:focus-within),
+  [data-site-entrance] {
+    animation: site-reveal 720ms cubic-bezier(.22, 1, .36, 1) backwards;
+  }
+
+  [data-site-entrance] { animation-duration: 580ms; }
+
+  :is(.pill-btn, [data-motion-press]):active { scale: .98; }
+
+  @keyframes site-reveal {
+    from { opacity: 0; translate: 0 16px; }
+    to { opacity: 1; translate: 0 0; }
+  }
+}

@@ -55,7 +55,7 @@ export default async function TreatmentPage({ params }: PageProps) {
             <span aria-current="page">{category.name}</span>
           )}
         </nav>
-        <h1>{heading}</h1>
+        <h1 data-site-entrance>{heading}</h1>
         {treatment ? (
           <a className="pill-btn" href="#booking">Book a consultation <Arrow /></a>
         ) : (
@@ -65,18 +65,18 @@ export default async function TreatmentPage({ params }: PageProps) {
 
       {treatment && (
         <div className="treatment-process">
-          <section>
+          <section data-scroll-reveal>
             <h2>How it’s done</h2>
             <p>{treatmentProcesses[treatment.slug]}</p>
           </section>
-          <section>
+          <section data-scroll-reveal>
             <h2>At your consultation</h2>
             <p>{treatment.overview}</p>
           </section>
         </div>
       )}
 
-      <section className="treatment-page-list" aria-labelledby="treatment-list-title">
+      <section className="treatment-page-list" aria-labelledby="treatment-list-title" data-scroll-reveal>
         <h2 id="treatment-list-title">
           {treatment ? `More ${category.name.toLowerCase()} treatments` : 'Explore treatments'}
         </h2>

@@ -1,7 +1,5 @@
-'use client';
-
-import { motion } from 'framer-motion';
-import Arrow from '../ui/Arrow';
+﻿import Arrow from '../ui/Arrow';
+import styles from './ParallaxSection.module.css';
 
 type Props = {
   onBook: () => void;
@@ -9,126 +7,39 @@ type Props = {
 
 export default function ParallaxSection({ onBook }: Props) {
   return (
-    <section className="parallax-section">
-
-      {/* Background image */}
-      <div className="parallax-image" />
-
-      {/* Dark / berry gradient */}
-      <div className="parallax-overlay-bg" />
-
-      <div className="parallax-content">
-
-        {/* Top metadata */}
-        <motion.div
-          className="parallax-top"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <span>WOW FACTOR</span>
-          <span>SCIENCE · BEAUTY · CARE</span>
-          <span>06</span>
-        </motion.div>
-
-
-        {/* Main content */}
-        <div className="parallax-main">
-
-          <motion.div
-            className="parallax-copy"
-            initial={{ opacity: 0, y: 45 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{
-              once: true,
-              amount: 0.25,
-            }}
-            transition={{
-              duration: 0.9,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-          >
-            <span className="parallax-eyebrow">
-              A NEW DIMENSION IN SKINCARE TECHNOLOGY
-            </span>
-
-            <h2>
-              Beautiful results.
-              <br />
-              <em>Thoughtful medicine.</em>
-            </h2>
-
-            <p>
-              Where advanced technology meets a deeply
-              personalized approach to aesthetic care.
-            </p>
-          </motion.div>
-
-
-          {/* Circular CTA */}
-          <motion.button
-            type="button"
-            className="parallax-circle"
-            onClick={onBook}
-            initial={{
-              opacity: 0,
-              scale: 0.7,
-            }}
-            whileInView={{
-              opacity: 1,
-              scale: 1,
-            }}
-            viewport={{
-              once: true,
-              amount: 0.25,
-            }}
-            transition={{
-              duration: 0.8,
-              delay: 0.15,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            whileHover={{
-              scale: 1.06,
-            }}
-            whileTap={{
-              scale: 0.96,
-            }}
-          >
-            <span>
-              START
-              <br />
-              YOUR
-              <br />
-              JOURNEY
-            </span>
-
-            <Arrow />
-          </motion.button>
-
+    <section className={styles.section} aria-labelledby="parallax-heading">
+      <div className={styles.image} aria-hidden="true" />
+      <div className={styles.inner}>
+        <div className={styles.top}>
+          <span className={styles.desktop}>Wow Factor</span>
+          <span className={styles.desktop}>Science &middot; Beauty &middot; Care</span>
+          <span className={styles.mobile}>Medical Tourism</span>
+          <span className={styles.mobile}>Skincare &middot; Aesthetics &middot; Wellness</span>
         </div>
-
-
-        {/* Bottom metadata */}
-        <motion.div
-          className="parallax-bottom"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{
-            duration: 0.8,
-            delay: 0.3,
-          }}
-        >
-          <span>
-            PERSONALIZED AESTHETIC CARE
-          </span>
-
-          <span>
-            DISCOVER MORE ↓
-          </span>
-        </motion.div>
-
+        <div className={styles.content}>
+          <div className={styles.copy} data-scroll-reveal>
+            <p className={styles.eyebrow}>
+              <span className={styles.desktop}>A new dimension in skincare technology</span>
+              <span className={styles.mobile}>Advanced skin &amp; aesthetic treatments</span>
+            </p>
+            <h2 id="parallax-heading">
+              Beautiful results.
+              <em>
+                <span className={styles.desktop}>Thoughtful<br />{' '}medicine.</span>
+                <span className={styles.mobile}>Thoughtful care.</span>
+              </em>
+            </h2>
+            <p className={styles.description}>
+              Where advanced technology meets a deeply personalized
+              approach to aesthetic care.
+            </p>
+          </div>
+          <button className={styles.booking} type="button" onClick={onBook} aria-label="Start your journey" data-scroll-reveal data-motion-press>
+            <span>Start<br />{' '}your<br />{' '}journey</span>
+            <Arrow />
+            <span className={styles.mobile} aria-hidden="true">→</span>
+          </button>
+        </div>
       </div>
     </section>
   );

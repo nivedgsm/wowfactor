@@ -19,7 +19,7 @@ export default function Footer() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className="footer-hero-meta">
-            <span>09 — WOW FACTOR</span>
+            <span>WOW FACTOR</span>
             <span>SCIENCE · BEAUTY · CARE</span>
           </div>
 

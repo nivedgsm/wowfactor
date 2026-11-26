@@ -31,10 +31,10 @@ export default function SkinGuide() {
 
   return (
     <section id="skin-guide" className="skin-guide" aria-labelledby="skin-guide-heading">
-      <h2 id="skin-guide-heading">Skin types &amp; <em>skin tones</em></h2>
-      <p>Skin type describes how your skin behaves. Skin tone describes its visible color. Both can inform a consultation.</p>
+      <h2 id="skin-guide-heading" data-scroll-reveal>Skin types &amp; <em>skin tones</em></h2>
+      <p data-scroll-reveal>Skin type describes how your skin behaves. Skin tone describes its visible color. Both can inform a consultation.</p>
 
-      <div className="skin-guide-grid">
+      <div className="skin-guide-grid" data-scroll-reveal>
         <div className="skin-guide-panel" role="group" aria-roledescription="carousel" aria-label="Skin types">
           <h3>Skin types</h3>
           <div className="skin-guide-controls" role="group" aria-label="Choose a skin type">

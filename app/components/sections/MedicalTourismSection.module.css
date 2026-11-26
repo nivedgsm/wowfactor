@@ -1,0 +1,198 @@
+.section {
+  --tourism-berry: #930b42;
+  --tourism-curve-height: clamp(24px, 4.5vw, 76px);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: var(--tourism-curve-height);
+  background: linear-gradient(155deg, #f2e4e8, #fffaf7 36%, #f8eee9 72%, #f2dfe6);
+  color: #272027;
+}
+
+.section::before,
+.section::after {
+  position: absolute;
+  z-index: -1;
+  height: var(--tourism-curve-height);
+  inset-inline: -8%;
+  pointer-events: none;
+  content: '';
+}
+
+.section::before {
+  top: 0;
+  border-radius: 0 0 65% 40% / 0 0 100% 63%;
+  background: var(--social-surface);
+}
+
+.section::after {
+  bottom: 0;
+  border-radius: 56% 47% 0 0 / 90% 72% 0 0;
+  background: var(--booking-surface);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, .43fr) minmax(0, 1fr);
+  grid-template-areas: 'copy steps visual';
+  align-items: center;
+  gap: clamp(18px, 2vw, 34px);
+  max-width: 1700px;
+  margin-inline: auto;
+  padding: 0 0 clamp(14px, 2vw, 32px) clamp(24px, 7.4vw, 116px);
+}
+
+.copy { grid-area: copy; padding-block: clamp(34px, 5.6vw, 96px); }
+
+.eyebrow {
+  margin: 0 0 clamp(18px, 2.6vw, 42px);
+  color: var(--tourism-berry);
+  font-size: clamp(.8rem, 1.12vw, 1.15rem);
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.copy h2 {
+  margin: 0;
+  font-size: clamp(38px, 3.9vw, 68px);
+  font-weight: 400;
+  line-height: 1.03;
+  letter-spacing: -.055em;
+  text-wrap: balance;
+}
+
+.copy em { display: block; color: var(--tourism-berry); }
+
+.description {
+  max-width: 44ch;
+  margin: clamp(18px, 2vw, 32px) 0 0;
+  color: #54464b;
+  font: 400 clamp(.96rem, 1.25vw, 1.25rem)/1.5 system-ui, sans-serif;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px clamp(12px, 2vw, 28px);
+  margin-top: clamp(22px, 2.7vw, 43px);
+}
+
+.primary,
+.more {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font: 600 clamp(.84rem, 1.03vw, 1.05rem)/1.25 system-ui, sans-serif;
+}
+
+.primary {
+  padding: 12px clamp(15px, 1.9vw, 30px);
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(110deg, #a50a4d, #790831);
+  color: #fff;
+  box-shadow: 0 8px 18px #930b4224;
+}
+
+.primary:hover { box-shadow: 0 9px 22px #930b4240; }
+.more:hover { color: var(--tourism-berry); }
+
+.play {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  color: var(--tourism-berry);
+}
+
+.steps {
+  grid-area: steps;
+  display: grid;
+  gap: clamp(14px, 2.1vw, 31px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  scroll-margin-block: 30px;
+}
+
+.steps li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(8px, 1vw, 16px);
+  font: 600 clamp(.78rem, .95vw, .98rem)/1.35 system-ui, sans-serif;
+}
+
+.stepIcon {
+  display: grid;
+  width: clamp(40px, 4.45vw, 68px);
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  background: #fff5eb;
+  color: var(--tourism-berry);
+  box-shadow: 0 3px 7px #48202a1a;
+}
+
+.stepIcon svg { width: 48%; }
+
+.actions :is(a, button):focus-visible,
+.steps:focus-visible {
+  outline: 2px solid var(--tourism-berry);
+  outline-offset: 5px;
+}
+
+.visual {
+  grid-area: visual;
+  position: relative;
+  align-self: stretch;
+  min-height: clamp(410px, 37vw, 640px);
+  overflow: hidden;
+  border-radius: 49% 0 25% 14% / 46% 0 10% 12%;
+  background: #890d3b;
+}
+
+.visual img {
+  object-fit: cover;
+  object-position: 71% center;
+}
+
+.visual::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(132deg, transparent 68%, #9b0c4930);
+  pointer-events: none;
+  content: '';
+}
+
+@media (max-width: 980px) {
+  .inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas: 'copy visual' 'steps visual';
+    padding: 36px 0 36px 5vw;
+  }
+
+  .copy { padding-block: 0; }
+  .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .visual { min-height: 370px; }
+}
+
+@media (max-width: 620px) {
+  .inner {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: 'copy' 'visual' 'steps';
+    gap: 26px;
+    padding: 26px 5vw;
+  }
+
+  .copy h2 { font-size: clamp(34px, 8.6vw, 52px); }
+  .visual { min-height: 0; aspect-ratio: 4 / 3; }
+  .steps { gap: 14px 12px; }
+}

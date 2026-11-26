@@ -1,149 +1,62 @@
-'use client';
+﻿'use client';
 
-import { motion } from 'framer-motion';
-import { socialPosts } from '@/app/data/siteData';
-import Arrow from '../ui/Arrow';
+import { useState } from 'react';
+import type { InstagramReel } from '@/app/data/instagramReels';
+import styles from './SocialSection.module.css';
 
-export default function SocialSection() {
-  const posts = socialPosts.slice(0, 5);
+const profile = 'https://www.instagram.com/wowfactorindia/';
+const columnCount = 5;
+const rowsPerColumn = 3;
+
+export default function SocialSection({ reels }: { reels: InstagramReel[] }) {
+  const [paused, setPaused] = useState(false);
+  const columns = Array.from({ length: columnCount }, (_, column) =>
+    Array.from({ length: rowsPerColumn }, (_, row) => {
+      const index = row * columnCount + column;
+      return { reel: reels[index % reels.length], repeat: index >= reels.length };
+    })
+  );
 
   return (
-    <section id="journal" className="social-section">
-      <div className="social-container">
+    <section id="journal" className={styles.section} aria-labelledby="social-heading">
+      <header className={styles.header} data-scroll-reveal>
+        <div>
+          <p className={styles.eyebrow}>Instagram</p>
+          <h2 id="social-heading">Inside the <em>WOW world.</em></h2>
+        </div>
+        <a className={styles.profile} href={profile}>Follow @wowfactorindia <span aria-hidden="true">↗</span></a>
+      </header>
 
-        {/* Header */}
-        <motion.header
-          className="social-header"
-          initial={{ opacity: 0, y: 35 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.25 }}
-          transition={{
-            duration: 0.8,
-            ease: [0.22, 1, 0.36, 1],
-          }}
-        >
-          <div className="social-header-meta">
-            <span className="eyebrow">
-              07 — THE JOURNAL
-            </span>
-
-            <span className="social-header-index">
-              BEAUTY / SCIENCE / LIFE
-            </span>
-          </div>
-
-          <div className="social-header-content">
-            <h2>
-              Inside the
-              <br />
-              <em>WOW world.</em>
-            </h2>
-
-            <div className="social-header-copy">
-              <p>
-                A closer look at the treatments, ideas,
-                people and moments that shape the WOW FACTOR
-                experience.
-              </p>
-
-              <a href="#" className="social-follow">
-                <span>Follow along</span>
-
-                <span
-                  className="social-follow-arrow"
-                  aria-hidden="true"
-                >
-                  <Arrow />
-                </span>
-              </a>
+      <div className={styles.gallery} data-paused={paused} data-scroll-reveal>
+        {columns.map((column, index) => (
+          <div className={styles.column} key={index}>
+            <div className={styles.track}>
+              {[false, true].map((duplicate) => (
+                <div className={duplicate ? styles.duplicate : styles.group} key={String(duplicate)} aria-hidden={duplicate || undefined}>
+                  {column.map(({ reel, repeat }, row) => (
+                    <div className={styles.tile} key={row} aria-hidden={repeat || undefined}>
+                      <img className={styles.cover} src={reel.cover} alt="" loading="lazy" decoding="async" />
+                      <a
+                        className={styles.reelLink}
+                        href={reel.href}
+                        tabIndex={duplicate || repeat ? -1 : undefined}
+                        aria-label={reel.title + ' on Instagram'}
+                      >
+                        <span className={styles.reelTitle}>{reel.title}</span>
+                        <span className={styles.reelArrow} aria-hidden="true">↗</span>
+                      </a>
+                    </div>
+                  ))}
+                </div>
+              ))}
             </div>
           </div>
-        </motion.header>
-
-        {/* Editorial gallery */}
-        <div className="social-gallery">
-
-          {posts.map(({ src, alt }, index) => (
-            <motion.a
-              href="#"
-              key={src}
-              className={`social-item social-item-${index + 1}`}
-              initial={{
-                opacity: 0,
-                y: 35,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{
-                once: true,
-                amount: 0.15,
-              }}
-              transition={{
-                duration: 0.8,
-                delay: index * 0.1,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-            >
-              <div className="social-image">
-                <img
-                  src={src}
-                  alt={alt}
-                  loading={index === 0 ? 'eager' : 'lazy'}
-                />
-
-                <div className="social-image-overlay" />
-
-                <div className="social-item-number">
-                  0{index + 1}
-                </div>
-
-                <div className="social-item-action">
-                  <span>EXPLORE</span>
-
-                  <span
-                    className="social-item-arrow"
-                    aria-hidden="true"
-                  >
-                    <Arrow />
-                  </span>
-                </div>
-              </div>
-            </motion.a>
-          ))}
-
-        </div>
-
-        {/* Bottom statement */}
-        <motion.div
-          className="social-bottom"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{
-            duration: 0.8,
-            delay: 0.25,
-          }}
-        >
-          <div className="social-bottom-mark">
-            <span>WOW</span>
-            <span>FACTOR</span>
-          </div>
-
-          <p>
-            Follow our journey.
-            <br />
-            <em>Stay inspired.</em>
-          </p>
-
-          <a href="#" className="social-bottom-link">
-            <span>Instagram</span>
-            <Arrow />
-          </a>
-        </motion.div>
-
+        ))}
       </div>
+
+      <button className={styles.pause} type="button" onClick={() => setPaused((value) => !value)}>
+        {paused ? 'Resume scrolling' : 'Pause scrolling'}
+      </button>
     </section>
   );
 }

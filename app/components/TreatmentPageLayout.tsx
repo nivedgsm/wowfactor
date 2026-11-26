@@ -17,7 +17,7 @@ export default function TreatmentPageLayout({ children }: { children: ReactNode 
       <Navbar onBook={openBooking} />
       <main>
         {children}
-        <section id="booking" className="page-cta">
+        <section id="booking" className="page-cta" data-scroll-reveal>
           <h2>Talk to a specialist</h2>
           <button className="pill-btn" onClick={openBooking}>
             Book a consultation <Arrow />

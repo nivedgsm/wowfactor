@@ -22,7 +22,7 @@ export default function ResultsSection() {
         >
           <div className="results-intro-left">
             <span className="eyebrow">
-              03 — RESULTS
+              RESULTS
             </span>
 
             <h2>

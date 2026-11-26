@@ -22,7 +22,7 @@ export default function TestimonialsSection() {
         >
           <div className="testimonials-header-top">
             <span className="eyebrow">
-              06 — EXCEPTIONAL CARE & RESULTS
+              EXCEPTIONAL CARE & RESULTS
             </span>
 
             <span className="testimonials-header-label">
