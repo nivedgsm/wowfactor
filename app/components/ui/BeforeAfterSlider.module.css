@@ -1,0 +1,29 @@
+.surface {
+  touch-action: pan-y pinch-zoom;
+  user-select: none;
+  cursor: ew-resize;
+}
+
+.before {
+  clip-path: inset(0 calc(100% - var(--ba-position)) 0 0);
+}
+
+.divider {
+  position: absolute;
+  inset: 0;
+  transform: translate3d(var(--ba-position), 0, 0);
+  pointer-events: none;
+}
+
+.divider > * { left: 0; }
+
+.handle {
+  pointer-events: auto;
+  cursor: ew-resize;
+  touch-action: inherit;
+}
+
+.handle:focus-visible {
+  outline: 2px solid var(--berry);
+  outline-offset: 3px;
+}
